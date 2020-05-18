@@ -12,7 +12,7 @@
 <meta name="author" content="ThemeMascot" />
 
 <!-- Page Title -->
-<title>iasega_checkout</title>
+<title>MuslimFoundation</title>
 
 <!-- Favicon and Touch Icons -->
 <!-- <link href="images/favicon.png" rel="shortcut icon" type="image/png">
@@ -65,7 +65,7 @@
     </div>
     <!-- <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div> -->
   </div>
-  
+
   <!-- start main-content -->
   <div class="main-content">
     <!-- Section: home -->
@@ -88,21 +88,21 @@
                                     ///
                                     ////
                                     ////
- 
+
                             $paymentchannel = $_POST['paymentmode'];
-                            $isysid = $_POST['isysid']; 
-                            $amount = $_POST['amount']; 
+                            $isysid = $_POST['isysid'];
+                            $amount = $_POST['amount'];
                             $description = $_POST['description1'];
-                            $description2 = 'description2'." "; 
-                            $language = $_POST['language']; 
-                            $countryOrign = $_POST['country']; 
+                            $description2 = 'description2'." ";
+                            $language = $_POST['language'];
+                            $countryOrign = $_POST['country'];
 
                             $country = 'UG';
-                            $tunnel = 'isys'; 
-                            $merchant_name = 'MuslimFoundation'; 
-                            $akey = 'FTdWRxuH6iWNNVaK'; 
-                            $original = urlencode('mVRmRCfCUhTEngbmmJ/Fv2aotjWruLHVQ7OAe0DOeK8='); 
-                            $decryptedOriginal = 'vH5mCDm47cF3eFkK'; 
+                            $tunnel = 'isys';
+                            $merchant_name = 'MuslimFoundation';
+                            $akey = 'FTdWRxuH6iWNNVaK';
+                            $original = urlencode('mVRmRCfCUhTEngbmmJ/Fv2aotjWruLHVQ7OAe0DOeK8=');
+                            $decryptedOriginal = 'vH5mCDm47cF3eFkK';
                             $timestamp = time();
                             $rnd = "";
 
@@ -120,28 +120,28 @@
                                 $currency = 'UGX';
                             }
 
-                             
+
     $merchantResponseUrl = 'http://irgd.co.ug';
-                              
-    $dataToComputeHash = $paymentchannel . "paymentchannel" . $isysid . "isysid" . $amount . "amount" . $timestamp . "timestamp" . $description . "description" . "" . "rnd" . $original . "original"; 
-                              
-    $hash = strtoupper(hash_hmac("sha256", $dataToComputeHash, $decryptedOriginal)); 
-                              
-                            $params = array('paymentchannel' => $paymentchannel, 
-                                'isysid' => $isysid, 
-                                'amount' => $amount, 
-                                'description' => $description, 
-                                'description2' => $description2, 
-                                'tunnel' => $tunnel, 
-                                'currency' => $currency, 
-                                'language' => $language, 
-                                'country' => $country, 
-                                'merchant_name' => $merchant_name, 
-                                'responseurl' => $merchantResponseUrl, 
-                                'akey' => $akey, 
-                                'original' => $original, 
-                                'hash' => $hash, 
-                                'timestamp' => $timestamp); 
+
+    $dataToComputeHash = $paymentchannel . "paymentchannel" . $isysid . "isysid" . $amount . "amount" . $timestamp . "timestamp" . $description . "description" . "" . "rnd" . $original . "original";
+
+    $hash = strtoupper(hash_hmac("sha256", $dataToComputeHash, $decryptedOriginal));
+
+                            $params = array('paymentchannel' => $paymentchannel,
+                                'isysid' => $isysid,
+                                'amount' => $amount,
+                                'description' => $description,
+                                'description2' => $description2,
+                                'tunnel' => $tunnel,
+                                'currency' => $currency,
+                                'language' => $language,
+                                'country' => $country,
+                                'merchant_name' => $merchant_name,
+                                'responseurl' => $merchantResponseUrl,
+                                'akey' => $akey,
+                                'original' => $original,
+                                'hash' => $hash,
+                                'timestamp' => $timestamp);
 
         $url = 'https://pay-it.mobi/globalpayit/pciglobal/WebForms/Payitcheckoutservice%20.aspx?' . http_build_query($params);
 
@@ -188,7 +188,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">               
+                    <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="form_sex">Country<small>*</small></label>
@@ -438,20 +438,20 @@
                           </select>
                         </div>
                       </div>
-					 
-					  
+
+
                     </div>
                      <div class="form-group col-lg-12">
                                         <label>Enter Amount <small>*</small></label>
-                                        <input type="number"  data-msg-required="Please enter Ammount." maxlength="100" class="form-control" name="amount" id="amount" required 
-                                        <?php if(isset($_GET['amountcalc'])){ 
+                                        <input type="number"  data-msg-required="Please enter Ammount." maxlength="100" class="form-control" name="amount" id="amount" required
+                                        <?php if(isset($_GET['amountcalc'])){
                                             echo "readonly value='".$_GET['amountcalc']."'";
-                                             } 
+                                             }
                                              ?> >
                                     </div>
                     <script type="text/javascript">
 							function paymentCheck() {
-									  
+
 									      if (document.getElementById('visaCheck2').checked) {
 									        document.getElementById('ifVisa2').style.visibility = 'visible';
 									    }
@@ -482,7 +482,7 @@
 
 									}
 								</script>
-					           
+
 									<div class="form-row">
 								<label>Payment Option *</label>
 
@@ -491,11 +491,11 @@
 
 										&nbsp;&nbsp;
 										<input type="radio" name="paymentmode" value="UGXPRESSPAY" id="visaCheck2" onclick="javascript:paymentCheck();">
-										<img alt="" width="59" src="file:///D|/Users/i.asega/Downloads/logos/visa5.png">  
+										<img alt="" width="59" src="file:///D|/Users/i.asega/Downloads/logos/visa5.png">
 
 										&nbsp;&nbsp;
 										<input type="radio" name="paymentmode" value="UGIEACC" id="interswitchCheck" onclick="javascript:paymentCheck();">
-										<img alt="" width="65" src="file:///D|/Users/i.asega/Downloads/logos/interswitch.jpg"> 
+										<img alt="" width="65" src="file:///D|/Users/i.asega/Downloads/logos/interswitch.jpg">
 
 										&nbsp;&nbsp;
 										<input type="radio" name="paymentmode" value="UGMTNMOMODIR" id="mtnCheck" onclick="javascript:paymentCheck();">
@@ -514,16 +514,16 @@
 									</div>
 
 								</div>
-								 
-                            
+
+
                               <div class="form-group">
                    <input id="form_botcheck" name="donate" class="form-control" type="hidden" value="" />
                       <button type="submit" class="btn btn-block btn-dark btn-theme-colored btn-sm mt-20 pt-10 pb-10" data-loading-text="Please wait...">Donate</button>
                     </div>
                   </form>
-                                
+
                                 <?php } ?>
-									
+
                     <!-- <div class="form-group">
                       <label for="form_message">Message <small>*</small></label>
                       <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Your cover letter/message sent to the employer"></textarea>
@@ -533,8 +533,8 @@
                       <input id="form_attachment" name="form_attachment" class="file" type="file" multiple data-show-upload="false" data-show-caption="true">
                       <small>Maximum upload file size: 12 MB</small>
                     </div> -->
-                   
-				  
+
+
                   <!-- Job Form Validation-->
 <!--                   <script type="text/javascript">
                     $("#job_apply_form").validate({
