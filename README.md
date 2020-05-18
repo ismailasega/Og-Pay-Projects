@@ -2,4 +2,4 @@ Og Pay Checkout, Merchant products and third-party services/interfaces are all a
 
 Accessing this service is possible through a default channel with restricted IP webpage and unique credentials for each during testing and once testing is succeed to move to Production where new credentials are needed:
 
-Documentation: https://pay-it.mobi/payitcheckout/
+API Documentation: https://pay-it.mobi/payitcheckout/

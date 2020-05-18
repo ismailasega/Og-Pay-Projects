@@ -100,9 +100,9 @@
                             $country = 'UG';
                             $tunnel = 'isys';
                             $merchant_name = 'MuslimFoundation';
-                            $akey = 'FTdWRxuH6iWNNVaK';
-                            $original = urlencode('mVRmRCfCUhTEngbmmJ/Fv2aotjWruLHVQ7OAe0DOeK8=');
-                            $decryptedOriginal = 'vH5mCDm47cF3eFkK';
+                            $akey = 'xxxxxxxx';
+                            $original = urlencode('xxxxxxxxxxxxxxxxxxxx');
+                            $decryptedOriginal = 'xxxxxxxxxxx';
                             $timestamp = time();
                             $rnd = "";
 
