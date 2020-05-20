@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GiveIn.ascx.cs" Inherits="UserControls_Donations_GiveIn" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GiveIn.aspx.cs" Inherits="UserControls_Donations_GiveIn" %>
 <style type="text/css">
 
         .auto-style19 {
