@@ -9,6 +9,30 @@ using System.Security.Cryptography;
 
 public partial class UserControls_Donations_GiveIn : System.Web.UI.UserControl
 {
+    public class Program
+    {
+        private const string key = "{ decryptedOriginal }";
+        private const string message = "{ dataToComputeHash }";
+        private static readonly Encoding encoding = Encoding.UTF8;
+
+        public static void Main(string[] args)
+        {
+            var keyByte = encoding.GetBytes(key);
+            using (var hmacsha256 = new HMACSHA256(keyByte))
+            {
+                hmacsha256.ComputeHash(encoding.GetBytes(message));
+
+                Console.WriteLine("Result: {0}", ByteToString(hmacsha256.Hash));
+            }
+        }
+        static string ByteToString(byte[] buff)
+        {
+            string sbinary = "";
+            for (int i = 0; i < buff.Length; i++)
+                sbinary += buff[i].ToString("X2"); /* hex format */
+            return sbinary;
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -59,5 +83,6 @@ public partial class UserControls_Donations_GiveIn : System.Web.UI.UserControl
 
      Response.Redirect(url);
     }
+    
 }
 
