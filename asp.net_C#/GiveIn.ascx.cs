@@ -48,9 +48,9 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         return sbinary;
     }
 
-    private string ComputeKnetHash(decimal amount, string paymentId)
+    private string ComputeKnetHash(decimal amt, string paymentId)
     {
-        var dataToComputeHash = amount.ToString("F3") + "amount" + paymentId + "paymentId";
+        var dataToComputeHash = amt.ToString("F3") + "amt" + paymentId + "paymentId";
         var hash = HnS.UI.Knet.helper.ConvertToHex(dataToComputeHash);
         return hash;
 
@@ -58,8 +58,8 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         
     protected void Page_load(object sender, EventArgs e)
     {
-        var paymentId = DateTime.Now.ToString("ddmmyyyyhhmmss");
-        var paymentchannel = "kwamexcc";
+        var paymentId = DateTime.Now.ToString("ddmmyyyyhhmmss"); //generate paymentId/transactionId
+        var paymentchannel = "UGMTNMOMODIR";
         var isysid = paymentId;
         var amount = Convert.ToDecimal(Donation.Amount);
         var description = "something";
