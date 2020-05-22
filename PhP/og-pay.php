@@ -524,41 +524,7 @@
 
                                 <?php } ?>
 
-                    <!-- <div class="form-group">
-                      <label for="form_message">Message <small>*</small></label>
-                      <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Your cover letter/message sent to the employer"></textarea>
-                    </div> -->
-                   <!--  <div class="form-group">
-                      <label for="form_attachment">C/V Upload</label>
-                      <input id="form_attachment" name="form_attachment" class="file" type="file" multiple data-show-upload="false" data-show-caption="true">
-                      <small>Maximum upload file size: 12 MB</small>
-                    </div> -->
-
-
-                  <!-- Job Form Validation-->
-<!--                   <script type="text/javascript">
-                    $("#job_apply_form").validate({
-                      submitHandler: function(form) {
-                        var form_btn = $(form).find('button[type="submit"]');
-                        var form_result_div = '#form-result';
-                        $(form_result_div).remove();
-                        form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                        var form_btn_old_msg = form_btn.html();
-                        form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                        $(form).ajaxSubmit({
-                          dataType:  'json',
-                          success: function(data) {
-                            if( data.status == 'true' ) {
-                              $(form).find('.form-control').val('');
-                            }
-                            form_btn.prop('disabled', false).html(form_btn_old_msg);
-                            $(form_result_div).html(data.message).fadeIn('slow');
-                            setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                          }
-                        });
-                      }
-                    });
-                  </script> -->
+                    
                 </div>
               </div>
             </div>
