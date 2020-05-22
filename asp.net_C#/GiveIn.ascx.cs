@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 public partial class UserControls_Donations_Given: System.Web.UI.UserControl
 {
+    private static readonly Encoding encoding = Encoding.UTF8;
+    private const string key ="";
+
+    public object Donation { get; private set; }
+
     public static string ConvertToHex(string dataToComputeHash)
     {
         var hash = "";
         try
         {
-            var keyByte = encoding.GetBytes(key)
-;
+            var keyByte = encoding.GetBytes(key);
             using (var hmacsha256 = new HMACSHA256(keyByte))
             {
                 hmacsha256.ComputeHash(encoding.GetBytes(dataToComputeHash));
@@ -42,9 +48,9 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         return sbinary;
     }
 
-    private string ComputeKnetHash(decimal amt, string paymentId)
+    private string ComputeKnetHash(decimal amount, string paymentId)
     {
-        var dataToComputeHash = amt.ToString("F3") + "amt" + paymentId + "paymentId";
+        var dataToComputeHash = amount.ToString("F3") + "amount" + paymentId + "paymentId";
         var hash = HnS.UI.Knet.helper.ConvertToHex(dataToComputeHash);
         return hash;
 
@@ -55,11 +61,11 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         var paymentId = DateTime.Now.ToString("ddmmyyyyhhmmss");
         var paymentchannel = "kwamexcc";
         var isysid = paymentId;
-        var amount = "Convert.ToDecimal(customerOrderDM.Amount) / Convert.ToDecimal(customerOrderDM.ExchangeRate)";
+        var amount = Convert.ToDecimal(Donation.Amount);
         var description = "something";
         var description2 = "testing2";
         var language = "EN";
-        var country = "KW";
+        var country = "UG";
         var merchant_name = ConfigurationManager.AppSettings["MerchantName"];
         var akey = ConfigurationManager.AppSettings["AuthenticationKey"];
         var timestamp = "";
