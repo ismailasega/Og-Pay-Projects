@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 public partial class UserControls_Donations_Given: System.Web.UI.UserControl
 {
     private static readonly Encoding encoding = Encoding.UTF8;
-    private const string key ="";
+    private const string key = "decryptedOriginal";
 
     public object Donation { get; private set; }
 
@@ -79,7 +79,7 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
                                 + rnd + "rnd" + original + "original";
         HMACSHA256 hmac = new HMACSHA256();
         var hash = ConvertToHex(dataToComputeHash);
-        var responseUrl = "";
+        var responseUrl = "enter response url";
         var path = ConfigurationManager.AppSettings["PayitUrl"];
         var url = path + "?paymentchannel=" + paymentchannel +
                   "&isysid=" + isysid +
