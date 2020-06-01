@@ -9,11 +9,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class UserControls_Donations_Given: System.Web.UI.UserControl
-{
-    private static readonly Encoding encoding = Encoding.UTF8;
+{   private static readonly Encoding encoding = Encoding.UTF8;
     private const string key = "decryptedOriginal";
-
-    public object Donation { get; private set; }
 
     public static string ConvertToHex(string dataToComputeHash)
     {
@@ -33,7 +30,6 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         }
         return hash;
     }
-
     static string ByteToString(byte[] buff)
     {
         string sbinary = "";
@@ -47,21 +43,12 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         }
         return sbinary;
     }
-
-    private string ComputeKnetHash(decimal amt, string paymentId)
-    {
-        var dataToComputeHash = amt.ToString("F3") + "amt" + paymentId + "paymentId";
-        var hash = HnS.UI.Knet.helper.ConvertToHex(dataToComputeHash);
-        return hash;
-
-    }
-        
-    protected void Page_load(object sender, EventArgs e)
+        protected void Page_load(object sender, EventArgs e)
     {
         var paymentId = DateTime.Now.ToString("ddmmyyyyhhmmss"); //generate paymentId/transactionId
         var paymentchannel = "UGMTNMOMODIR";
         var isysid = paymentId;
-        var amount = Convert.ToDecimal(Donation.Amount);
+        var amount = "amount";
         var description = "something";
         var description2 = "testing2";
         var language = "EN";
@@ -74,7 +61,7 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         var rnd = "";
         var original = ConfigurationManager.AppSettings["OriginalEncryptedSalt"];
         var dataToComputeHash = paymentchannel + "paymentchannel" + isysid
-                                + "isysid" + amount.ToString("F3") + "amount"
+                                + "isysid" + amount + "amount"
                                 + timestamp + "timestamp" + description + "description"
                                 + rnd + "rnd" + original + "original";
         HMACSHA256 hmac = new HMACSHA256();
@@ -83,7 +70,7 @@ public partial class UserControls_Donations_Given: System.Web.UI.UserControl
         var path = ConfigurationManager.AppSettings["PayitUrl"];
         var url = path + "?paymentchannel=" + paymentchannel +
                   "&isysid=" + isysid +
-                  "&amount=" + amount.ToString("F3") +
+                  "&amount=" + amount +
                   "&description=" + description + "&description2=" + description2 +
                   "&tunnel=" + tunnel + "&currency=" + currency +
                   "&language=" + language + "&country=" + country +
